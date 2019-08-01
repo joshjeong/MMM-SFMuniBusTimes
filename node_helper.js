@@ -42,12 +42,8 @@ module.exports = NodeHelper.create({
           routes: [],
           messages: [],
         };
-        // TODO: Prevent message repetition in resulting object
-        // Sanitize message objects and add them to stop data
-        for (const msg of pred.message) {
-          const message = msg.$;
-          stopData.messages.push(message);
-        }
+
+        stopData.messages.push(pred.$);
       }
       stopData.routes.push({ route, trains: [] });
       const { trains } = stopData.routes[stopData.routes.length - 1];
