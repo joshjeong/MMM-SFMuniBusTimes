@@ -85,7 +85,6 @@ Module.register("MMM-SFMuniBusTimes", {
     }
     return wrapper;
   },
-
   // Handle messages from node_helper.js
   socketNotificationReceived: function(notification, payload) {
     if (notification === "MUNI_TIMINGS") {
@@ -94,4 +93,8 @@ Module.register("MMM-SFMuniBusTimes", {
       this.updateDom();
     }
   },
+
+  // Override notification handler.
+  notificationReceived: function(notification, payload, sender) {
+  }
 });
